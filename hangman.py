@@ -8,21 +8,31 @@ def main():
     
     guesses = 2
     keyword = random.choice(words)
-    while guesses > 0:
-        keyword_splitted = list(keyword)
-        keyword_on_screen = ''.join(list('-' * len(keyword)))
-        print(keyword_on_screen)
 
-        user_letter = input('>>> ')
+    keyword_splitted = list(keyword)
+    keyword_on_screen = ''.join(list('-' * len(keyword)))
+    guessed_letters = list()
+    print(keyword_on_screen)
+
+    while guesses > 0:
+        user_letter = input('=> ')
         
         if user_letter in keyword:
+            guessed_letters.append(user_letter)
             keyword_on_screen = list()
+
             for i in keyword_splitted:
-                if i != user_letter:
+                if i not in guessed_letters:
                     i = '-'
                 keyword_on_screen.append(i)
+            keyword_on_screen = (''.join(keyword_on_screen))
+            print(keyword_on_screen)
         else:
             guesses -= 1
-        print('Guesses left: %d' % guesses)
+
+            if guesses == 0:
+                print("Sorry, you don't have gueeses anymore")
+            else:
+                print('Guesses left: %d' % guesses)
 
 main()
