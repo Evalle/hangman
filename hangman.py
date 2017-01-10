@@ -2,6 +2,7 @@
 
 import random
 import sys
+import string
 
 words = ['titanic', 'diehard', 'starwars', 'startrek']
 
@@ -17,6 +18,13 @@ def main():
     while guesses > 0: 
         user_letter = input('=> ')
         
+        if len(user_letter) > 1:
+            print('Only one letter at the time!')
+            user_letter = input('=> ')
+        elif user_letter.lower() not in string.ascii_lowercase:
+            print('Only letters are allowed!')
+            user_letter = input('=> ')
+
         if user_letter in keyword:
             guessed_letters.append(user_letter)
             keyword_on_screen = list()
