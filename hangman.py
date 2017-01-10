@@ -9,7 +9,6 @@ def main():
     
     guesses = 7
     keyword = random.choice(words)
-    keyword_splitted = list(keyword)
     keyword_on_screen = ''.join(list('-' * len(keyword)))
     guessed_letters = list()
 
@@ -22,7 +21,7 @@ def main():
             guessed_letters.append(user_letter)
             keyword_on_screen = list()
 
-            for i in keyword_splitted:
+            for i in keyword:
                 if i not in guessed_letters:
                     i = '-'
                 keyword_on_screen.append(i)
