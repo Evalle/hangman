@@ -6,6 +6,7 @@ import string
 
 words = ['titanic', 'diehard', 'starwars', 'startrek']
 
+
 def main():
     
     guesses = 7
@@ -16,14 +17,7 @@ def main():
     print(keyword_on_screen)
 
     while guesses > 0: 
-        user_letter = input('=> ')
-        
-        if len(user_letter) > 1:
-            print('Only one letter at the time!')
-            user_letter = input('=> ')
-        elif user_letter.lower() not in string.ascii_lowercase:
-            print('Only letters are allowed!')
-            user_letter = input('=> ')
+        user_letter = (input('=> ')).lower()
 
         if user_letter in keyword:
             guessed_letters.append(user_letter)
